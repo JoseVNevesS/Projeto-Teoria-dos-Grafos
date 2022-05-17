@@ -1,7 +1,3 @@
-from numpy import matrix
-from sqlalchemy import desc
-
-
 arq = open("grafo.txt")
 
 # Funções
@@ -130,7 +126,7 @@ for i in range(len(vertices)):
         componentes.append([i+1])
         qtdComp += 1
 
-print("Componentes: ")
+print("\ng. Componentes: ")
 if len(componentes) > 1:
     for i in componentes:
         print(f"Componente {componentes.index(i)+1}: {i}")
