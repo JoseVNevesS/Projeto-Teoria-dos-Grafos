@@ -69,7 +69,7 @@ print("c. Grau Mínimo: " + str(menorGrau(vertices)))
 print("d. Grau Máximo: " + str(maiorGrau(vertices)))
 
 matrizAdj = criarMatriz(len(vertices), vertices)
-print("e. Representação do Grafo: ")
+print("-----------------------------------\ne. Representação do Grafo: ")
 
 string = "   "
 for i in range(len(vertices)):
@@ -83,11 +83,7 @@ for i in range(len(vertices)):
 def buscarElemento(inicio, buscado):
     descoberto = [inicio]
     visitado = []
-    notVisited = []
     encontrado = 0
-
-    for i in range(len(vertices)):
-        notVisited.append(i+1)
 
     while not len(descoberto) == 0:
         for j in vertices[int(descoberto[0])-1]:
@@ -101,13 +97,12 @@ def buscarElemento(inicio, buscado):
         else:
             visitado.append(descoberto[0])
             del(descoberto[0])
-            del(notVisited[0])
 
     return encontrado, visitado
 
-print("Busca em Largura: ")
-numInicial = input("Digite apartir de qual vértice a busca será iniciada: ")
-numBuscado = input("Digite o vértice a ser buscado: ")
+print("-----------------------------------\nf. Busca em Largura: ")
+numInicial = input("Digite apartir de qual vértice a busca será iniciada: ").strip()
+numBuscado = input("Digite o vértice a ser buscado: ").strip()
 busca = buscarElemento(numInicial, numBuscado)
 if busca[0] == 1:
     print(f"Elemento {numBuscado} encontrado: {str(busca[1])}")
@@ -126,7 +121,7 @@ for i in range(len(vertices)):
         componentes.append([i+1])
         qtdComp += 1
 
-print("\ng. Componentes: ")
+print("-----------------------------------\ng. Componentes: ")
 if len(componentes) > 1:
     for i in componentes:
         print(f"Componente {componentes.index(i)+1}: {i}")
